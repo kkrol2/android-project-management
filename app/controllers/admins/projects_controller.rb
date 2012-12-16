@@ -15,6 +15,7 @@ class Admins::ProjectsController < Admins::AdminsController
 
 	def destroy
       Project.find(params[:id]).destroy
+      redirect_to '/admins/projects'
       
    end
 
