@@ -1,0 +1,25 @@
+<%= form_for [:admins,@project,@image], :html => { :multipart => true } do |f| %>
+  <% if @image.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@image.errors.count, "error") %> prohibited
+        this image from being saved:</h2>
+    <ul>
+    <% @image.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+ 
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+   <%= f.label :header_image_path %><br />
+   <%= file_field_tag :image_path %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,14 @@
+<%= link_to 'Usuń', {:action=>'destroy', :id=>@project}, :confirm=>"Are you sure", :method=>'delete' %>
+<%= link_to("Edytuj", admins_project_edit_path(@project)) %>
+<%= link_to("Galeria projektu", admins_project_images_path(@project))%>
+<br />
+<b>Nazwa:</b><p><%= @project.name %> </p>
+<b>Opis:</b> <p><%= @project.description %></p>
+<b>Headline:</b> <p><%= @project.header_text %></p>
+<b>Link do aplikacji:</b> <p><%= @project.link_to_app %></p>
+<b>Data stworzenia:</b> <p><%= @project.created_at %></p>
+<b>Data modyfikacji:</b> <p><%= @project.updated_at %></p>
+<%= raw img(@project.header_image_path.to_s,300,300) %>
+
+
+

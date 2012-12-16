@@ -1,0 +1,8 @@
+<%= table_for(@projects) do |t|
+      t.data do
+      	 t.cell(:name, :cell_html => {:class => "titlestring"}, :heading =>"Nazwa")
+   	 	 t.cell(:link_to_app, :heading => "Link do aplikacji") {|p| p.link_to_app}
+   	 	 t.cell(:open, :heading => "Zarządzaj") {|p| link_to(p.name, admins_project_path(p))}
+      end
+ end %>
+ <%= link_to("Nowy projekt", new_admins_project_path()) %>

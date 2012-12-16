@@ -1,9 +1,20 @@
 AndroidProjectManagement::Application.routes.draw do
-  devise_for :admins
+  devise_for :admins, :controllers => {:registrations => "registrations"}
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
 root :to => 'application#index'
+
+namespace :admins do
+  root :to => "admins#index"
+  resources :projects do
+    resources :images, :marks, :comments, :bugs
+    resources :surveys do
+      resources :options
+    end
+  end
+
+end
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action

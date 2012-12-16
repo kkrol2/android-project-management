@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; .charset=iso-8859-1" />
+		<meta http-equiv="Content-Language" content="en-us" />
+		<title>Sklep</title>
+		 <%= csrf_meta_tag %>
+		<%= stylesheet_link_tag "style" %>
+		<%= javascript_include_tag "application" %>	</head>
+
+	<body >
+		<div id="container">
+	<div id="header">
+		<h1>
+			Panel Admina
+		</h1>
+	</div>
+	<div id="navigation">
+		<ul>
+			<%= raw generateMenu() %>
+		</ul>
+	</div>
+	<div id="content-container">
+		<div id="content">
+			 <% if flash[:notice] %>
+    			<p class="flash-notice"><%= flash[:notice] %></p>
+  			<% end %>
+			<%= yield -%>
+
+			
+		</div>
+		<div id="aside">
+			<h3>
+				Menu
+			</h3>
+			<p>
+				<div id="admin_panel">
+					<% if admin_signed_in? %>
+					Signed in as <%= current_admin.email %> 
+					<%= link_to "Sign out", destroy_admin_session_path, :method => :delete %>
+					<% else %>
+					<%= link_to "Zaloguj się jako administrator", new_admin_session_path %>
+			<%end%>
+
+				</div>
+			</p>
+		</div>
+		<div id="footer">
+			Krzysztof Krol
+		</div>
+	</div>
+</div>
+		
+		
+	</body>
+</html>
