@@ -10,7 +10,7 @@
 
 <% content_for :sidebar do %>
    <p> <%= link_to 'Usuń', {:action=>'destroy', :id=>@project}, :confirm=>"Are you sure", :method=>'delete' %> </p>
-   <p> <%= link_to("Edytuj", admins_project_edit_path(@project)) %> </p>
+   <p> <%= link_to("Edytuj", edit_admins_project_path(@project)) %> </p>
    <p> <%= link_to("Galeria aplikacji", admins_project_images_path(@project))%> </p>
    <p> <%= link_to("Bugi", admins_project_bugs_path(@project))%> </p>
    <p> <%= link_to("Komentarze", admins_project_comments_path(@project))%> </p>
