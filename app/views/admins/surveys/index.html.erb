@@ -1,0 +1,29 @@
+Sondy do projektu <%= @project.name %>
+
+<table>
+	<thead>
+		<tr>
+			<th>Nazwa</th>
+			<th>Opis</th>
+			<th>Utworzony</th>
+			<th>Zmodyfikowany</th>
+			<th>Edytuj </th>
+			<th>Usuń </th>
+		</tr>
+	</thead>
+	<% @surveys.each do |survey| %>
+	  		<tr>
+	    		<td><%= link_to(survey.name,admins_project_survey_path(@project,survey)) %></td>
+	    		<td><%= survey.description %></td>
+	    		<td><%= survey.created_at %></td>
+	    		<td><%= survey.updated_at %></td>
+	    		<td><%= link_to("Edytuj sondę", edit_admins_project_survey_path(@project,survey)) %></td>
+	    		<td><%= link_to 'Usuń', {:action=>'destroy', :id=>survey}, :method=>'delete' %></td>
+	    	</tr>
+	<% end %>
+</table>
+
+<% content_for :sidebar do %>
+    <%= link_to("Dodaj ankietę", new_admins_project_survey_path(@project)) %>
+<% end %>
+

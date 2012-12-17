@@ -1,0 +1,8 @@
+<p><b>Ocena: <%= @mark.mark %></b></p>
+<p><b>Data utworzenia: <%= @mark.created_at %></b></p>
+<p><b>Data modyfikacji: <%= @mark.updated_at %></b></p>
+
+<% content_for :sidebar do %>
+    <%= link_to("Edytuj ocenę", edit_admins_project_mark_path(@project,@mark)) %>
+	<%= link_to 'Delete', {:action=>'destroy', :id=>@mark}, :confirm=>"Are you sure", :method=>'delete' %>
+<% end %>

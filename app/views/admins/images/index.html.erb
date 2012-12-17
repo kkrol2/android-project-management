@@ -18,4 +18,6 @@ Zdjęcia projektu <%= @project.name %>
 	    	</tr>
 	<% end %>
 </table>
-<%= link_to("Dodaj zdjęcie do galerii", new_admins_project_image_path(@project)) %>
+<% content_for :sidebar do %>
+    <%= link_to("Dodaj zdjęcie do galerii", new_admins_project_image_path(@project)) %>
+<% end %>

@@ -1,0 +1,31 @@
+Bugi projektu <%= @project.name %>
+
+<table>
+	<thead>
+		<tr>
+			<th>Nazwa</th>
+			<th>Opis</th>
+			<th>Stan</th>
+			<th>Utworzony</th>
+			<th>Zmodyfikowany</th>
+			<th>Edytuj </th>
+			<th>Usuń </th>
+		</tr>
+	</thead>
+	<% @bugs.each do |bug| %>
+	  		<tr>
+	    		<td><%= link_to(bug.name,admins_project_bug_path(@project,bug)) %></td>
+	    		<td><%= bug.description %></td>
+	    		<td><%= bug.stateDesc %></td>
+	    		<td><%= bug.created_at %></td>
+	    		<td><%= bug.updated_at %></td>
+	    		<td><%= link_to("Edytuj buga", edit_admins_project_bug_path(@project,bug)) %></td>
+	    		<td><%= link_to 'Usuń', {:action=>'destroy', :id=>bug}, :method=>'delete' %></td>
+	    	</tr>
+	<% end %>
+</table>
+
+<% content_for :sidebar do %>
+    <%= link_to("Dodaj buga", new_admins_project_bug_path(@project)) %>
+<% end %>
+

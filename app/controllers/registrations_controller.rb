@@ -1,6 +1,6 @@
 class RegistrationsController < Devise::RegistrationsController
 layout 'admin'
-before_filter :prevent_sign_up
+
 
 private
     def prevent_sign_up

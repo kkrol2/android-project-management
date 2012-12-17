@@ -1,0 +1,13 @@
+<p>Opcja do ankiety:<b> <%= @survey.name %></b></p>
+<br />
+<p>Nazwa:<b> <%= @option.name %></b></p>
+<p>Opis:<b> <%= @option.votes_number %></b></p>
+<p>Utworzona:<b> <%= @option.created_at %></b></p>
+<p>Zmodyfikowana:<b> <%= @option.updated_at %></b></p>
+
+<% content_for :sidebar do %>
+	<%= link_to("Ankieta", admins_project_survey_path(@project,@survey)) %>
+	<br />
+    <%= link_to("Edytuj opcję", edit_admins_project_survey_option_path(@project,@survey,@option)) %>
+	<%= link_to 'Usuń opcję', {:action=>'destroy', :id=>@option}, :confirm=>"Are you sure", :method=>'delete' %>
+<% end %>

@@ -1,0 +1,24 @@
+<%= form_for [:admins,@project,@mark] do |f| %>
+  <% if @mark.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@mark.errors.count, "error") %> prohibited
+        this mark from being saved:</h2>
+    <ul>
+    <% @mark.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+ 
+
+
+  <div class="field">
+    <%= f.label :mark %><br />
+    <%= select_tag "mark[mark]", options_for_select([1,2,3,4,5,6], @mark.mark) %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

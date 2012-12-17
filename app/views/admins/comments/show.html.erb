@@ -1,0 +1,7 @@
+<p><b>Treść: <%= @comment.content %></b></p>
+<p><b>Nick_name: <%= @comment.nick_name %></b></p>
+
+<% content_for :sidebar do %>
+    <%= link_to("Edytuj komentarz", edit_admins_project_comment_path(@project,@comment)) %>
+	<%= link_to 'Delete', {:action=>'destroy', :id=>@comment}, :confirm=>"Are you sure", :method=>'delete' %>
+<% end %>

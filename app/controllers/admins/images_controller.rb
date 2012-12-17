@@ -36,7 +36,7 @@ class Admins::ImagesController < Admins::AdminsController
 	  	end
 	    @image = @project.images.build(params[:image])
 	    if @image.save
-      			redirect_to (admins_project_path(@project))
+      			redirect_to (admins_project_image_path(@project,@image))
   			 else
       			format.html  { render :action => "new" }
     	end

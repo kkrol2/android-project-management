@@ -37,11 +37,16 @@
 			<p>
 				<div id="admin_panel">
 					<% if admin_signed_in? %>
-					Signed in as <%= current_admin.email %> 
+					Signed in as <b><%= current_admin.email %></b> <br /> 
 					<%= link_to "Sign out", destroy_admin_session_path, :method => :delete %>
 					<% else %>
-					<%= link_to "Zaloguj się jako administrator", new_admin_session_path %>
-			<%end%>
+					<%= link_to "Zaloguj się jako administrator", new_admin_session_path %>				
+					<% end %>
+					<br />
+					<br />
+					<% if content_for?(:sidebar) %>
+  						<div><%= yield :sidebar %></div>
+					<%end%>
 
 				</div>
 			</p>

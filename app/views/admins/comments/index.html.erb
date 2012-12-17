@@ -1,0 +1,29 @@
+Komentarze do projektu <%= @project.name %>
+
+<table>
+	<thead>
+		<tr>
+			<th>Zawartość</th>
+			<th>Nickname</th>
+			<th>Utworzony</th>
+			<th>Zmodyfikowany</th>
+			<th>Edytuj </th>
+			<th>Usuń </th>
+		</tr>
+	</thead>
+	<% @comments.each do |comment| %>
+	  		<tr>
+	    		<td><%= link_to(comment.content,admins_project_comment_path(@project,comment)) %></td>
+	    		<td><%= comment.nick_name %></td>
+	    		<td><%= comment.created_at %></td>
+	    		<td><%= comment.updated_at %></td>
+	    		<td><%= link_to("Edytuj komentarz", edit_admins_project_comment_path(@project,comment)) %></td>
+	    		<td><%= link_to 'Usuń', {:action=>'destroy', :id=>comment}, :method=>'delete' %></td>
+	    	</tr>
+	<% end %>
+</table>
+
+<% content_for :sidebar do %>
+    <%= link_to("Dodaj komentarz", new_admins_project_comment_path(@project)) %>
+<% end %>
+

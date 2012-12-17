@@ -1,0 +1,29 @@
+Opcje ankiety <%= @survey.name %>
+
+<table>
+	<thead>
+		<tr>
+			<th>Nazwa</th>
+			<th>Liczba głosów</th>
+			<th>Utworzony</th>
+			<th>Zmodyfikowany</th>
+			<th>Edytuj </th>
+			<th>Usuń </th>
+		</tr>
+	</thead>
+	<% @options.each do |option| %>
+	  		<tr>
+	    		<td><%= link_to(option.name,admins_project_survey_option_path(@project,@survey,option)) %></td>
+	    		<td><%= option.votes_number %></td>
+	    		<td><%= option.created_at %></td>
+	    		<td><%= option.updated_at %></td>
+	    		<td><%= link_to("Edytuj opcję", edit_admins_project_survey_option_path(@project,@survey,option)) %></td>
+	    		<td><%= link_to 'Usuń', {:action=>'destroy', :id=>option}, :method=>'delete' %></td>
+	    	</tr>
+	<% end %>
+</table>
+
+<% content_for :sidebar do %>
+    <%= link_to("Dodaj opcję", new_admins_project_survey_option_path(@project,@survey)) %>
+<% end %>
+

@@ -1,0 +1,8 @@
+<p><b>Nazwa: <%= @bug.name %></b></p>
+<p><b>Opis: <%= @bug.description %></b></p>
+<p><b>Stan: <%= @bug.stateDesc %></b></p>
+
+<% content_for :sidebar do %>
+    <%= link_to("Edytuj buga", edit_admins_project_bug_path(@project,@bug)) %>
+	<%= link_to 'Delete', {:action=>'destroy', :id=>@bug}, :confirm=>"Are you sure", :method=>'delete' %>
+<% end %>

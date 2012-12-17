@@ -1,0 +1,34 @@
+<p><b>Nazwa: <%= @survey.name %></b></p>
+<p><b>Opis: <%= @survey.description %></b></p>
+<p><b>Enabled: <%= check_box_tag "post", "yes",@survey.enabled,:disabled => true %></b></p>
+
+<table>
+	<thead>
+		<tr>
+			<th>Nazwa</th>
+			<th>Liczba głosów</th>
+			<th>Utworzony</th>
+			<th>Zmodyfikowany</th>
+			<th>Edytuj </th>
+
+		</tr>
+	</thead>
+	<% @options.each do |option| %>
+	  		<tr>
+	    		<td><%= link_to(option.name,admins_project_survey_option_path(@project,@survey,option)) %></td>
+	    		<td><%= option.votes_number %></td>
+	    		<td><%= option.created_at %></td>
+	    		<td><%= option.updated_at %></td>
+	    		<td><%= link_to("Edytuj opcję", edit_admins_project_survey_option_path(@project,@survey,option)) %></td>
+
+	    	</tr>
+	<% end %>
+</table>
+
+<% content_for :sidebar do %>
+    <%= link_to("Edytuj ankietę", edit_admins_project_survey_path(@project,@survey)) %>
+    <%= link_to 'Delete', {:action=>'destroy', :id=>@survey}, :confirm=>"Are you sure", :method=>'delete' %>
+    <br />
+    <%= link_to("Dodaj opcję", new_admins_project_survey_option_path(@project,@survey)) %>
+	
+<% end %>

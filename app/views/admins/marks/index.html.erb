@@ -1,0 +1,27 @@
+Oceny projektu <%= @project.name %>
+
+<table>
+	<thead>
+		<tr>
+			<th>Ocena</th>
+			<th>Utworzony</th>
+			<th>Zmodyfikowany</th>
+			<th>Edytuj </th>
+			<th>Usuń </th>
+		</tr>
+	</thead>
+	<% @marks.each do |mark| %>
+	  		<tr>
+	    		<td><%= link_to(mark.mark,admins_project_mark_path(@project,mark)) %></td>
+	    		<td><%= mark.created_at %></td>
+	    		<td><%= mark.updated_at %></td>
+	    		<td><%= link_to("Edytuj ocenę", edit_admins_project_mark_path(@project,mark)) %></td>
+	    		<td><%= link_to 'Usuń', {:action=>'destroy', :id=>mark}, :method=>'delete' %></td>
+	    	</tr>
+	<% end %>
+</table>
+
+<% content_for :sidebar do %>
+    <%= link_to("Dodaj ocenę", new_admins_project_mark_path(@project)) %>
+<% end %>
+
