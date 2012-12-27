@@ -5,6 +5,8 @@ AndroidProjectManagement::Application.routes.draw do
   # first created -> highest priority.
 root :to => 'application#index'
 
+match 'app/:id' => 'projects#view'
+
 namespace :admins do
   root :to => "admins#index"
   resources :projects do

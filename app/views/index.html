@@ -5,12 +5,9 @@
 <title>Glossy Box | Free CSS Template</title>
 <meta name="keywords" content="glossy box, web design, colorful background, free templates, website templates, CSS, HTML" />
 <meta name="description" content="Glossy Box | free website template with a colorful background" />
-<%= stylesheet_link_tag "templatemo_style" %>
-<%= stylesheet_link_tag "jquery.ennui.contentslider" %>
-<%= javascript_include_tag "spa" %> 
-<script>
+<link href="templatemo_style.css" rel="stylesheet" type="text/css" />
+<link href="css/jquery.ennui.contentslider.css" rel="stylesheet" type="text/css" media="screen,projection" />
 
-</script>
 </head>
 <body>
 
@@ -19,17 +16,15 @@
     
     	<div id="templatemo_header">
 			<div id="site_title">
-                <% if content_for?(:site_title) %>
-                        <div><%= yield :site_title %></div>
-                    <%end%>
+				<h1><a href="http://www.templatemo.com"><strong>GLOSSY</strong> BOX<span>YOUR TAGLINE GOES HERE</span></a></h1>
 			</div> <!-- end of site_title -->
 
 				<ul id="social_box">
-					<li><a href="http://www.facebook.com/templatemo"><%= image_tag "facebook.png" %></a></li>
-					<li><a href="#"><%= image_tag "twitter.png" %></a></li>
-					<li><a href="#"><%= image_tag "linkedin.png" %></a></li>
-					<li><a href="#"><%= image_tag "technorati.png" %></a></li>
-					<li><a href="#"><%= image_tag "myspace.png" %></a></li>                
+					<li><a href="http://www.facebook.com/templatemo"><img src="images/facebook.png" alt="facebook" /></a></li>
+					<li><a href="#"><img src="images/twitter.png" alt="twitter" /></a></li>
+					<li><a href="#"><img src="images/linkedin.png" alt="linkin" /></a></li>
+					<li><a href="#"><img src="images/technorati.png" alt="technorati" /></a></li>
+					<li><a href="#"><img src="images/myspace.png" alt="myspace" /></a></li>                
 				</ul>
 			
 			<div class="cleaner"></div>
@@ -57,7 +52,7 @@
                             	<div class="slider_content_wrapper">
 									
 									<div class="slider_image">
-										<%= image_tag "templatemo_slide01.jpg" %>
+										<img src="images/slider/templatemo_slide01.jpg" alt="Mauris quis eros arcu" />
 									</div>
 									
 									<div class="slider_content">
@@ -73,7 +68,7 @@
                             	<div class="slider_content_wrapper">
 									
 									<div class="slider_image">
-										<%= image_tag "templatemo_slide02.jpg" %>
+										<img src="images/slider/templatemo_slide02.jpg" alt="Cras porta porta turpis" />
 									</div>
                      			
 									<div class="slider_content">
@@ -89,8 +84,7 @@
                             	<div class="slider_content_wrapper">
 									
 									<div class="slider_image">
-
-										<%= image_tag "templatemo_slide03.jpg" %>
+										<img src="images/slider/templatemo_slide03.jpg" alt="Nullam ac mi id massa consectetur" />
 									</div>
 									
 									<div class="slider_content">
@@ -106,7 +100,7 @@
                             	<div class="slider_content_wrapper">
 									
 									<div class="slider_image">
-										<%= image_tag "templatemo_slide04.jpg" %>
+										<img src="images/slider/templatemo_slide04.jpg" alt="Maecenas venenatis viverra nisi" />
 									</div>
 									
 									<div class="slider_content">
@@ -123,9 +117,9 @@
                 </div><!-- End contentslider -->
                 
                 <!-- Site JavaScript -->
-               
-                <%= javascript_include_tag "jquery.easing.1.3.js" %>
-                <%= javascript_include_tag "jquery.ennui.contentslider.js" %>
+                <script type="text/javascript" src="js/jquery-1.3.1.min.js"></script>
+                <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+                <script type="text/javascript" src="js/jquery.ennui.contentslider.js"></script>
                 <script type="text/javascript">
                     $(function() {
                     $('#one').ContentSlider({
@@ -136,7 +130,8 @@
                     });
                     });
                 </script>
-
+                <script src="js/jquery.chili-2.2.js" type="text/javascript"></script>
+                <script src="js/chili/recipes.js" type="text/javascript"></script>
                 <div class="cleaner"></div>
             	
             </div>
@@ -150,19 +145,19 @@
                 
                 <div class="reasons">
                 	<h3>Reliable</h3>
-                	<%= image_tag "reason1.png" %>
+                    <img src="images/reason1.png" alt="Reason1" />
                     <p>Nam nulla odio, egestas non rutrum eget, euismod vel odio. Aliquam erat volutpat.</p>
                 </div>
                 
                 <div class="reasons">
                 	<h3>Punctual</h3>
-                    <%= image_tag "reason2.png" %>
+                    <img src="images/reason2.png" alt="Reason2" />
                     <p>Nulla ut nibh elit, ut fermentum mi. Aliquam adipiscing, nunc vel euismod viverra.</p>
                 </div>
                 
                 <div class="reasons">
                 	<h3>100% Satisfaction</h3>
-                    <%= image_tag "reason3.png" %>
+                    <img src="images/reason3.png" alt="Reason3" />
                     <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae lacus dolor. </p>
                 </div>
                 
@@ -170,8 +165,7 @@
                 
                 <div class="col_w560">
                 	<h2>Who We Are</h2>
-                    <div class="image_wrapper image_fl">
-                    	<%= image_tag "templatemo_image_01.jpg" %> </div>
+                    <div class="image_wrapper image_fl"><img src="images/templatemo_image_01.jpg" alt="TemplatemoImage01" /></div>
                     <p><em>Etiam ut urna ante, ut pulvinar ante. Vivamus a metus quam. Aenean non eros nunc. </em></p>
            			<p>This Free CSS Template is provided by <a href="http://www.templatemo.com">templatemo.com</a>. You may use this template in your websites. Credit goes to <a href="http://www.photovaco.com/" target="_blank">Free Photos</a> for photos . Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget  sollicitudin turpis. Praesent facilisis orci vitae ante dignissim  ultrices. Curabitur convallis molestie sem, et egestas enim ornare non.  </p>
             		<div class="btn_more"><a href="#">Read more</a></div>
@@ -203,9 +197,6 @@
         
 	</div> <!-- end of wrapper -->
 </div> <!-- end of wrapper_outer -->
-<script>
-    new WebTodoApp(5);
-</script>
 
 </body>
 </html>

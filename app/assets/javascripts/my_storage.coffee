@@ -1,0 +1,6 @@
+class @MyStorage
+  constructor: ->
+
+
+
+
