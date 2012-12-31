@@ -28,4 +28,40 @@ class ProjectsController < ApplicationController
   		end
 	end
 
+	def getSurveys
+		j = ActiveSupport::JSON
+		project = Project.find(params[:id])
+		surveys = project.surveys
+		respond_to do |format|
+    		format.json { render :json => j.encode(surveys) }
+  		end
+	end
+
+	def getComments
+		j = ActiveSupport::JSON
+		project = Project.find(params[:id])
+		comments = project.comments
+		respond_to do |format|
+    		format.json { render :json => j.encode(comments) }
+  		end
+	end
+
+	def getMarks
+		j = ActiveSupport::JSON
+		project = Project.find(params[:id])
+		marks = project.marks
+		respond_to do |format|
+    		format.json { render :json => j.encode(marks) }
+  		end
+	end
+
+	def getOptions
+		j = ActiveSupport::JSON
+		survey = Survey.find(params[:id])
+		options = project.options
+		respond_to do |format|
+    		format.json { render :json => j.encode(options) }
+  		end
+	end
+
 end

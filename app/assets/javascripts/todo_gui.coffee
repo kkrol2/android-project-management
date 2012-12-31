@@ -1,6 +1,8 @@
 class @WebGui
   constructor: ->
-   
+    $("#comments_button").click( => @showComments() )
+    $("#home_button").click( => @showHome() )
+    $("#surveys_button").click( => @showSurveys() )
   init: (project,images) =>
   	@initHeadline(project)
   	@initGallery(images)
@@ -28,3 +30,27 @@ class @WebGui
                     speed : 400,
                     easing : 'easeOutSine'
                     });
+  showComments: =>
+    @unselectAllElements()
+    $('#comments_button').toggleClass('current', true);
+
+  fillComments: (comments) =>
+    for comment in comments
+      $("#content").append(@createElementFor(comment,"#comment_template")) 
+    	
+
+  unselectAllElements: =>
+    $('#comments_button').toggleClass('current', false);
+    $('#home_button').toggleClass('current', false);
+    $('#surveys_button').toggleClass('current', false);
+
+  showHome: =>
+    @unselectAllElements()
+    $('#home_button').toggleClass('current', true);
+
+  showSurveys: =>
+    @unselectAllElements()
+    $('#surveys_button').toggleClass('current', true);
+
+  refreshUi: =>
+    $("#content").html("")

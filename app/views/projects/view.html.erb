@@ -35,9 +35,7 @@
 
 <div id="content">
             	
-     <script type="x-handlebars-template" id="content_template">
-           {{{description}}}
-  	 </script>
+     
                 
      <div class="cleaner"></div>
  </div>
@@ -49,3 +47,14 @@
 	});
 </script>
 
+<script type="x-handlebars-template" id="content_template">
+           {{{description}}}
+ </script>
+
+ <script type="x-handlebars-template" id="comment_template">
+ 		   <div class="comment">
+ 		   		{{created_at}} <div class="nick_name">{{nick_name}}</div>
+           		<div class="comment_class">{{content}}</div>
+           </div>
+           <br />
+ </script>

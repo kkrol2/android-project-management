@@ -13,6 +13,9 @@ class @CompleteTasksUseCase
   	if @project !=null and @project != undefined
   		@initGuiDummy()
 
+  setComments: (data) =>
+    @comments = data
+
   initGuiDummy: =>
 
   getProject: =>
@@ -21,4 +24,8 @@ class @CompleteTasksUseCase
   getImages: =>
   	return @images
 
+  getComments: =>
+  	return @comments
 
+  getSurveys: =>
+  	return @surveys

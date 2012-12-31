@@ -11,6 +11,14 @@ match 'projects/getProject' => 'projects#getProject'
 
 match 'projects/getImages' => 'projects#getImages'
 
+match 'projects/getMarks' => 'projects#getMarks'
+
+match 'projects/getSurveys' => 'projects#getSurveys'
+
+match 'projects/getComments' => 'projects#getComments'
+
+match 'projects/getOptions' => 'projects#getOptions'
+
 namespace :admins do
   root :to => "admins#index"
   resources :projects do
