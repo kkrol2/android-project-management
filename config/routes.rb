@@ -7,6 +7,10 @@ root :to => 'application#index'
 
 match 'app/:id' => 'projects#view'
 
+match 'projects/getProject' => 'projects#getProject'
+
+match 'projects/getImages' => 'projects#getImages'
+
 namespace :admins do
   root :to => "admins#index"
   resources :projects do

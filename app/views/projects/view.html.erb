@@ -1,6 +1,41 @@
 
 <% content_for :site_title  do %>
-    <h1><a href="http://www.templatemo.com"><strong>Super</strong> BOX<span>YOUR TAGLINE GOES HERE</span></a></h1>
+  <div id="site_title"> </div>
+  <script type="x-handlebars-template" id="header_template">
+           <h1><a><strong>{{name}}</strong><span>{{header_text}}</span></a></h1>
+  </script>
 <% end %>
 
- 
+<% content_for :gallery  do %>
+ <script type="x-handlebars-template" id="image_template">
+           <div class="cs_article">
+                   <div class="slider_content_wrapper">
+									
+						<div class="slider_image">
+							<%= raw(img('{{path}}}',500,500)) %>
+						</div>
+									
+						<div class="slider_content">
+                            <h2>{{name}}</h2>
+                                <p>Maecenas quis nibh dolor, pharetra tristique tellus. Nunc at posuere ligula. Suspendisse in tempus lectus. Nulla laoreet odio eu ligula rhoncus luctus.</p>
+										<div class="btn_more"><a href="#">More...</a></div>
+						</div>
+                                
+					</div>
+            </div><!-- End cs_article -->
+  </script>
+
+  <div id="gallery" class="contentslider">
+                    <div class="cs_wrapper">
+                        <div id="cs_slider" class="cs_slider">
+                        </div><!-- End cs_slider -->
+                    </div><!-- End cs_wrapper -->
+  </div><!-- End contentslider -->
+
+<% end %>
+
+<script>	
+	$(function() {
+ 		new WebTodoApp(<%= @project.id %>);
+	});
+</script>

@@ -48,94 +48,17 @@
         <div id="templatemo_slider_wrapper">
         
         	<div id="templatemo_slider">
-            
-				<div id="one" class="contentslider">
-                    <div class="cs_wrapper">
-                        <div class="cs_slider">
-                        
-                            <div class="cs_article">
-                            	<div class="slider_content_wrapper">
-									
-									<div class="slider_image">
-										<%= image_tag "templatemo_slide01.jpg" %>
-									</div>
-									
-									<div class="slider_content">
-                                        <h2>Lorem ipsum dolor sit amet consectetur adipiscing</h2>
-                                        <p>Maecenas quis nibh dolor, pharetra tristique tellus. Nunc at posuere ligula. Suspendisse in tempus lectus. Nulla laoreet odio eu ligula rhoncus luctus.</p>
-										<div class="btn_more"><a href="#">More...</a></div>
-									</div>
-                                
-								</div>
-                            </div><!-- End cs_article -->
-                            
-                            <div class="cs_article">
-                            	<div class="slider_content_wrapper">
-									
-									<div class="slider_image">
-										<%= image_tag "templatemo_slide02.jpg" %>
-									</div>
-                     			
-									<div class="slider_content">
-                                        <h2>Vestibulum vitae lectus a leo commodo egestas</h2>
-                                        <p>Aliquam nec felis tellus. Sed a dolor lectus. Phasellus ac dolor id nunc pharetra interdum. Fusce magna nulla, elementum nec luctus sit amet, lacinia ut lorem.</p>
-                                        <div class="btn_more"><a href="#">More...</a></div>
-                                    </div>
-                                
-								</div>
-                            </div><!-- End cs_article -->
-                            
-                            <div class="cs_article">
-                            	<div class="slider_content_wrapper">
-									
-									<div class="slider_image">
-
-										<%= image_tag "templatemo_slide03.jpg" %>
-									</div>
-									
-									<div class="slider_content">
-                                        <h2>Praesent at nunc tellus sed sed auctor odio</h2>
-                                        <p>Nullam fermentum risus vitae lectus posuere sagittis. Praesent faucibus, dui vitae condimentum semper, dolor augue ornare elit, quis congue ante lacus id dui.</p>
-                                        <div class="btn_more"><a href="#">More...</a></div>
-                                    </div>
-                                
-								</div>
-                            </div><!-- End cs_article -->
-                            
-                            <div class="cs_article">
-                            	<div class="slider_content_wrapper">
-									
-									<div class="slider_image">
-										<%= image_tag "templatemo_slide04.jpg" %>
-									</div>
-									
-									<div class="slider_content">
-                                        <h2>Maecenas ut mauris eu ligula placerat tempor vel</h2>
-                                        <p>Suspendisse dolor dui, pretium quis sagittis convallis, placerat et diam. Fusce euismod mattis mauris, ac consequat leo pellentesque non. Nullam ut pharetra diam.</p>
-                                        <div class="btn_more"><a href="#">More...</a></div>
-                                    </div>
-                                
-								</div>
-                            </div><!-- End cs_article -->
-                      
-                        </div><!-- End cs_slider -->
-                    </div><!-- End cs_wrapper -->
-                </div><!-- End contentslider -->
+                
+                 <% if content_for?(:gallery) %>
+                        <div><%= yield :gallery %></div>
+                <%end%>
+				
                 
                 <!-- Site JavaScript -->
                
                 <%= javascript_include_tag "jquery.easing.1.3.js" %>
                 <%= javascript_include_tag "jquery.ennui.contentslider.js" %>
-                <script type="text/javascript">
-                    $(function() {
-                    $('#one').ContentSlider({
-                    width : '940px',
-                    height : '240px',
-                    speed : 400,
-                    easing : 'easeOutSine'
-                    });
-                    });
-                </script>
+ 
 
                 <div class="cleaner"></div>
             	
@@ -145,7 +68,7 @@
         
         <div id="templatemo_content_wrapper">
 			<div id="content">
-            	
+            	<%= yield %>
                 <h2>Why You Should Choose Us</h2>
                 
                 <div class="reasons">
@@ -203,9 +126,7 @@
         
 	</div> <!-- end of wrapper -->
 </div> <!-- end of wrapper_outer -->
-<script>
-    new WebTodoApp(5);
-</script>
+
 
 </body>
 </html>
