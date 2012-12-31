@@ -4,6 +4,7 @@ class @WebGui
   init: (project,images) =>
   	@initHeadline(project)
   	@initGallery(images)
+  	@showContent(project)
 
   createElementFor: (data,templateId) =>
     source = $(templateId).html();
@@ -12,6 +13,9 @@ class @WebGui
 
   initHeadline: (project) =>
   	$("#site_title").html(@createElementFor(project,"#header_template"))
+
+  showContent: (project) =>
+  	$("#content").html(@createElementFor(project,"#content_template"))
 
   initGallery: (images) =>
 

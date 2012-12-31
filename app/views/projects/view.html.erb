@@ -2,7 +2,7 @@
 <% content_for :site_title  do %>
   <div id="site_title"> </div>
   <script type="x-handlebars-template" id="header_template">
-           <h1><a><strong>{{name}}</strong><span>{{header_text}}</span></a></h1>
+           <h1><a href='{{link_to_app}}'><strong>{{name}}</strong><span>{{header_text}}</span></a></h1>
   </script>
 <% end %>
 
@@ -12,13 +12,12 @@
                    <div class="slider_content_wrapper">
 									
 						<div class="slider_image">
-							<%= raw(img('{{path}}}',500,500)) %>
+							<%= raw(img('{{path}}}',400,400)) %>
 						</div>
 									
 						<div class="slider_content">
                             <h2>{{name}}</h2>
-                                <p>Maecenas quis nibh dolor, pharetra tristique tellus. Nunc at posuere ligula. Suspendisse in tempus lectus. Nulla laoreet odio eu ligula rhoncus luctus.</p>
-										<div class="btn_more"><a href="#">More...</a></div>
+                                <p>{{description}}}</p>
 						</div>
                                 
 					</div>
@@ -34,8 +33,19 @@
 
 <% end %>
 
+<div id="content">
+            	
+     <script type="x-handlebars-template" id="content_template">
+           {{{description}}}
+  	 </script>
+                
+     <div class="cleaner"></div>
+ </div>
+
+
 <script>	
 	$(function() {
  		new WebTodoApp(<%= @project.id %>);
 	});
 </script>
+

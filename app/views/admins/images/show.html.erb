@@ -1,5 +1,6 @@
 <%= raw img(@image.path.to_s,300,300) %>
 <p><b><%= @image.name %></b></p>
+<p><b><%= @image.description %></b></p>
 <% content_for :sidebar do %>
     <%= link_to("Edytuj zdjęcie", edit_admins_project_image_path(@project,@image)) %>
 	<%= link_to 'Delete', {:action=>'destroy', :id=>@image}, :confirm=>"Are you sure", :method=>'delete' %>

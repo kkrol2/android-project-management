@@ -3,6 +3,8 @@ class ProjectsController < ApplicationController
 	layout "standard"
 
 	def view
+		name = params[:id]
+		name.gsub!("_"," ")
 		@project = Project.find_by_name(params[:id])
 		if @project == nil
 			raise ActionController::RoutingError.new('Not Found')

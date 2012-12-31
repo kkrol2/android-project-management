@@ -6,7 +6,7 @@
 <b>Link do aplikacji:</b> <p><%= @project.link_to_app %></p>
 <b>Data stworzenia:</b> <p><%= @project.created_at %></p>
 <b>Data modyfikacji:</b> <p><%= @project.updated_at %></p>
-<%= raw img(@project.header_image_path.to_s,300,300) %>
+
 
 <% content_for :sidebar do %>
    <p> <%= link_to 'Usuń', {:action=>'destroy', :id=>@project}, :confirm=>"Are you sure", :method=>'delete' %> </p>

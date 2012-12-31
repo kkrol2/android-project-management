@@ -21,10 +21,7 @@ class Admins::ProjectsController < Admins::AdminsController
 
    def create
 	    
-	    filename = upload()
-	  	if filename != nil
-	  		params[:project][:header_image_path] = filename
-	  	end
+
 	  	@project = Project.new(params[:project])
 	    if @project.save
       			redirect_to (admins_project_path(@project))
@@ -36,10 +33,6 @@ class Admins::ProjectsController < Admins::AdminsController
 	def update
 
 	  	@project = Project.find(params[:id])
-	  	filename = upload()
-	  	if filename != nil
-	  		params[:project][:header_image_path] = filename
-	  	end
       	if @project.update_attributes(params[:project])
          	redirect_to :action => 'show', :id => @project
       	else

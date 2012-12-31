@@ -4,6 +4,7 @@ Zdjęcia projektu <%= @project.name %>
 	<thead>
 		<tr>
 			<th>Nazwa</th>
+			<th>Opis</th>
 			<th>Zdjęcie</th>
 			<th>Edytuj </th>
 			<th>Usuń </th>
@@ -12,6 +13,7 @@ Zdjęcia projektu <%= @project.name %>
 	<% @images.each do |image| %>
 	  		<tr>
 	    		<td><%= link_to(image.name,admins_project_image_path(@project,image)) %></td>
+	    		<td><%= image.description %></td>
 	    		<td><%= raw img(image.path.to_s,100,100) %></td>
 	    		<td><%= link_to("Edytuj zdjęcie", edit_admins_project_image_path(@project,image)) %></td>
 	    		<td><%= link_to 'Usuń', {:action=>'destroy', :id=>image}, :method=>'delete' %></td>
