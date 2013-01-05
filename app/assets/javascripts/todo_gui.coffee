@@ -3,6 +3,8 @@ class @WebGui
     $("#comments_button").click( => @showComments() )
     $("#home_button").click( => @showHome() )
     $("#surveys_button").click( => @showSurveys() )
+    $("#issues_button").click( => @showIssues() )
+  
   init: (project,images) =>
   	@initHeadline(project)
   	@initGallery(images)
@@ -32,17 +34,40 @@ class @WebGui
                     });
   showComments: =>
     @unselectAllElements()
-    $('#comments_button').toggleClass('current', true);
+    $('#comments_button').toggleClass('current', true)
 
   fillComments: (comments) =>
+    comments.reverse()
+    $("#content").html(@createElementFor(comments,"#comment_container_template")) 
+    $("#comments").html("")
     for comment in comments
-      $("#content").append(@createElementFor(comment,"#comment_template")) 
+      $("#comments").append(@createElementFor(comment,"#comment_template"))
+    $("#submit").click( => @addComment() ) 
+    comments.reverse()
     	
 
+  fillIssues: (issues) =>
+    issues.reverse()
+    $("#content").html(@createElementFor(issues,"#issue_container_template"))
+    $("#add_issue").click( => @showAddIssueForm() )
+    $("#issues").html("")
+    for issue in issues
+      $("#issues").append(@createElementFor(issue,"#issue_template"))
+    issues.reverse()
+
+
+  addComment: =>
+    comment = new Comment($("#text").val(),$("#author").val() )
+    @addCommentToDatabaseDummy(comment)
+
+  addCommentToDatabaseDummy: (comment) =>
+
+
   unselectAllElements: =>
-    $('#comments_button').toggleClass('current', false);
-    $('#home_button').toggleClass('current', false);
-    $('#surveys_button').toggleClass('current', false);
+    $('#comments_button').toggleClass('current', false)
+    $('#home_button').toggleClass('current', false)
+    $('#surveys_button').toggleClass('current', false)
+    $('#issues_button').toggleClass('current', false)
 
   showHome: =>
     @unselectAllElements()
@@ -50,7 +75,24 @@ class @WebGui
 
   showSurveys: =>
     @unselectAllElements()
-    $('#surveys_button').toggleClass('current', true);
+    $('#surveys_button').toggleClass('current', true)
+
+  showIssues: =>
+    @unselectAllElements()
+    $('#issues_button').toggleClass('current', true)
 
   refreshUi: =>
     $("#content").html("")
+
+  showAddIssueForm: =>
+    $("#issue_container").show()
+    $("#issue_add_form_helper").hide()
+    $("#issues").hide()
+    $("#submit_issue").click( => @submitIssue() )
+
+  submitIssue: =>
+    issue = new Issue($("#issue_name").val(),$("#issue_description").val())
+    @addIssueToDatabaseDummy(issue)
+    $("#issues").show()
+
+  addIssueToDatabaseDummy: (issue) =>

@@ -37,6 +37,15 @@ class ProjectsController < ApplicationController
   		end
 	end
 
+	def getBugs
+		j = ActiveSupport::JSON
+		project = Project.find(params[:id])
+		bugs = project.bugs
+		respond_to do |format|
+    		format.json { render :json => j.encode(bugs) }
+  		end
+	end
+
 	def getComments
 		j = ActiveSupport::JSON
 		project = Project.find(params[:id])
@@ -62,6 +71,46 @@ class ProjectsController < ApplicationController
 		respond_to do |format|
     		format.json { render :json => j.encode(options) }
   		end
+	end
+
+	def addComment
+		j = ActiveSupport::JSON
+		project = Project.find(params[:id])
+		comment = project.comments.build
+		comment.content = params[:content]
+		comment.nick_name = params[:nick_name]
+		if comment.save
+			respond_to do |format|
+    			format.json { render :json => j.encode("Success") }
+  			end
+  		else
+  			respond_to do |format|
+    			format.json { render :json => j.encode("Failure") }
+  			end
+  		end
+
+
+	end
+
+
+	def addIssue
+		j = ActiveSupport::JSON
+		project = Project.find(params[:id])
+		bug = project.bugs.build
+		bug.description = params[:description]
+		bug.state = 1
+		bug.name = params[:name]
+		if bug.save
+			respond_to do |format|
+    			format.json { render :json => j.encode("Success") }
+  			end
+  		else
+  			respond_to do |format|
+    			format.json { render :json => j.encode("Failure") }
+  			end
+  		end
+
+
 	end
 
 end

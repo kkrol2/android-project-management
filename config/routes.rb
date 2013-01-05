@@ -13,11 +13,17 @@ match 'projects/getImages' => 'projects#getImages'
 
 match 'projects/getMarks' => 'projects#getMarks'
 
+match 'projects/getBugs' => 'projects#getBugs'
+
 match 'projects/getSurveys' => 'projects#getSurveys'
 
 match 'projects/getComments' => 'projects#getComments'
 
 match 'projects/getOptions' => 'projects#getOptions'
+
+match 'projects/addComment' => 'projects#addComment'
+
+match 'projects/addIssue' => 'projects#addIssue'
 
 namespace :admins do
   root :to => "admins#index"

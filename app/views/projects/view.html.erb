@@ -34,7 +34,7 @@
 <% end %>
 
 <div id="content">
-            	
+    	
      
                 
      <div class="cleaner"></div>
@@ -53,8 +53,64 @@
 
  <script type="x-handlebars-template" id="comment_template">
  		   <div class="comment">
- 		   		{{created_at}} <div class="nick_name">{{nick_name}}</div>
-           		<div class="comment_class">{{content}}</div>
+ 		   		<div class="upper_comment"> {{created_at}} <span class="comment_nick_name">{{nick_name}}</span></div>
+           		<div class="lower_comment">{{content}}</div>
            </div>
+        </div>
            <br />
+ </script>
+ 
+ <script type="x-handlebars-template" id="issue_template">
+       <div class="issue">
+          <div class="upper_issue">  <span class="issue_name"><b>{{name}}</b></span><span class="issue_state">{{state}}</span><span class="issue_date">{{updated_at}}</span></div>
+              <div class="lower_issue">{{description}}</div>
+           </div>
+        </div>
+           <br />
+ </script>
+
+
+<script type="x-handlebars-template" id="comment_container_template">
+  <div id="comments"> </div> 
+  <div class="cleaner"></div>
+  <br />
+  <br />
+  <div  id="comment_container">
+      <div class="form" id="comment_form">
+        <h4>Add comment</h4>
+            <label for="author">Nick name:</label> <input type="text" id="author" name="author" class="required input_field" />
+              <div class="cleaner_h10"></div>
+              <label for="text">Message:</label> <textarea id="text" name="text" rows="0" cols="0" class="required"></textarea>
+              <div class="cleaner_h10"></div>
+              <input type="submit" class="submit_btn float_l" name="submit" id="submit" value="Send" />                    
+      </div>
+  </div>
+
+ </script>
+
+ <script type="x-handlebars-template" id="issue_container_template">
+  
+  <div id="issue_add_form_helper" class="form">
+    <p>If you have any issues with application let us know, so we can help You right away! Before submitting issue please check if it has not been submitted already.</p>
+    <input type="submit" class="submit_btn float_l" name="submit" id="add_issue" value="Add issue" />    
+  </div>
+
+  <div  id="issue_container">
+      Please remember to contain yours device name in issue description and as well try to recreate steps that lead to the problem.
+      <br />
+      <br />
+      <div id="issue_form" class="form">
+        <h4>Add issue</h4>
+              <label for="issue_name">Issue name:</label> <input type="text" id="issue_name" name="issue_name" class="required input_field" />
+              <div class="cleaner_h10"></div>
+              <label for="text">Description:</label> <textarea id="issue_description" name="text" rows="0" cols="0" class="required"></textarea>
+              <div class="cleaner_h10"></div>
+              <input type="submit" class="submit_btn float_l" name="submit" id="submit_issue" value="Submit" />                    
+      </div>
+  </div>
+  <div class="cleaner"></div>
+  <br />
+  <br />
+  <div id="issues"> </div> 
+
  </script>

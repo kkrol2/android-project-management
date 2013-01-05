@@ -403,18 +403,35 @@ em { color: #fff; }
 #partner_box ul li .layermo:hover { background: url(<%= asset_path('layermo_hover.png') %>) no-repeat; }
 
 
-#contact_form {  float: left; padding: 0; }
-#contact_form form { margin: 0px; padding: 0px; }
-#contact_form form .input_field { 
-	width: 380px; 
-	padding: 5px; 
+#comment_form {  
+	width: 700px;
+	margin-left: auto ;
+    margin-right: auto ; 
+}
+
+#issue_form {  
+	width: 700px;
+	margin-left: auto ;
+    margin-right: auto ; 
+}
+
+#issue_container {  
+	width: 700px;
+	display: none;
+	margin-left: auto ;
+    margin-right: auto ; 
+}
+
+.form .input_field { 
+	width: 690px; 
+	height: 25px;
 	font-family: Tahoma, Geneva, sans-serif; 
 	font-size: 12px;
 	background: #fff; 
 	border: 1px solid #dfdfdf; 
 }  
 	
-#contact_form form label { 
+ .form label { 
 	display: block; 
 	width: 100px; 
 	margin-right: 10px;
@@ -422,19 +439,19 @@ em { color: #fff; }
 	font-size: 13px; 
 }
 
-#contact_form form textarea { 
-	width: 380px;  
-	height: 200px;	
+.form textarea { 
+	width: 690px;  
+	height: 90px;	
 	background: #fff; 	
 	border: 1px solid #dfdfdf;
-	padding: 5px;
 	font-family: Tahoma, Geneva, sans-serif; 
 	font-size: 12px;
 }
 
-#contact_form form .submit_btn {
-	margin: 10px 0px; 
+.form .submit_btn {
+	margin-right: 10px;
 	padding: 5px 14px; 
+	float: right;
 	border: 1px solid #dfdfdf; 
 	background: #fff;
 	color:#666;
@@ -455,7 +472,58 @@ em { color: #fff; }
 }
 
 .comment {
+	width: 700px;
 	background: #40383A;
+	margin-left: auto ;
+    margin-right: auto ;
 }
 
+
+
+.comment_nick_name {
+	color: #389BC3;
+}
+
+.upper_comment {
+	padding: 5px;
+}
+
+.lower_comment {
+	padding: 5px;
+}
+
+
+.issue {
+	width: 700px;
+	background: #30282A;
+	margin-left: auto ;
+    margin-right: auto ;
+}
+
+.upper_issue {
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+
+.issue_name {
+	padding-left: 20px;
+}
+
+.issue_state {
+	float:right;
+	padding-right: 20px;
+}
+
+.issue_date {
+	float:right;
+	padding-right: 20px;
+	
+}
+
+.lower_issue{
+	background: #342C30;
+	padding-left: 20px;
+	padding-top: 6px;
+	padding-bottom: 6px;
+}
 /* end of footer */
