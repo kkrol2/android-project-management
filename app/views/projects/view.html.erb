@@ -44,6 +44,7 @@
 <script>	
 	$(function() {
  		new WebTodoApp(<%= @project.id %>);
+
 	});
 </script>
 
@@ -59,6 +60,13 @@
         </div>
            <br />
  </script>
+
+
+<script type="x-handlebars-template" id="survey_container_template">
+       <div id="surveys">
+        </div>
+           <br />
+ </script>
  
  <script type="x-handlebars-template" id="issue_template">
        <div class="issue">
@@ -69,12 +77,38 @@
            <br />
  </script>
 
+<script type="x-handlebars-template" id="survey_template">
+        <div style="text-align:center">
+          <h1> {{name}} </h1>
+        </div>
+       <div id="survey{{id}}">
+        </div>
+        <div class="hr_divider"></div>
+</script>
+
+<script type="x-handlebars-template" id="surveys_vote_template">
+       <br />
+       <div class="survey">
+          <div class="survey_name"><h1>{{name}}</h1></div>
+          <div class="survey_content">
+            <div class="survey_description">{{description}}</div>
+            <br />
+            {{#each options}}
+              <input type="radio" id='{{id}}' name="survey" value={{name}}/>{{name}}<br>
+            {{/each}}
+          </div>
+          <br />
+          <div class="form">
+            <input type="submit" class="submit_btn" name="submit" id="{{id}}" value="Submit" />   
+          </div>
+        </div>
+        <div class="hr_divider"></div>
+ </script>
 
 <script type="x-handlebars-template" id="comment_container_template">
   <div id="comments"> </div> 
   <div class="cleaner"></div>
-  <br />
-  <br />
+  <div class="hr_divider"></div>
   <div  id="comment_container">
       <div class="form" id="comment_form">
         <h4>Add comment</h4>
@@ -109,8 +143,7 @@
       </div>
   </div>
   <div class="cleaner"></div>
-  <br />
-  <br />
+  <div class="hr_divider"></div>
   <div id="issues"> </div> 
 
  </script>

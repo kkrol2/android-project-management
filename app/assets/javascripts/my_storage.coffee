@@ -20,11 +20,25 @@ class @MyStorage
 
   setImages: (data) =>
 
-  setSurveys: (data) =>
+  setSurveys: (surveys) =>
+  
+  surveysVoted: (surveys) =>
+    for survey in surveys
+      if @surveyVoted(survey)
+        survey.voted = true
+
 
   setComments: (data) =>
 
   setIssues: (data) =>
+
+  surveyVoted: (survey) =>
+    if $.cookie(survey.id.toString()) == undefined
+      return false
+    return true
+
+  surveyVote: (survey) =>
+    $.cookie(survey.id.toString(), 'true' )
     
   addIssue: (issue, project) =>
     $.get '/projects/addIssue', 'name='+issue.name+'&description='+issue.description+'&id='+project.id, @status, 'json'
@@ -33,6 +47,8 @@ class @MyStorage
     $.get '/projects/addComment', 'nick_name='+comment.nick_name+'&content='+comment.content+'&id='+project.id, @status, 'json'
 
   status: (data) =>
-    alert data
+
+  updateOption: (option) =>
+    $.get '/projects/updateOption', 'id='+option.id+'&votes_number='+option.votes_number, @status, 'json'
     
 

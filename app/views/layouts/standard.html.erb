@@ -2,12 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Glossy Box | Free CSS Template</title>
+<title><%= @project.name %></title>
 <meta name="keywords" content="glossy box, web design, colorful background, free templates, website templates, CSS, HTML" />
 <meta name="description" content="Glossy Box | free website template with a colorful background" />
 <%= stylesheet_link_tag "templatemo_style" %>
 <%= stylesheet_link_tag "jquery.ennui.contentslider" %>
+<%= stylesheet_link_tag "jquery.jqplot.min" %>
 <%= javascript_include_tag "spa" %> 
+<%= favicon_link_tag "/favicon.ico?1" %>
 <script>
 
 </script>
@@ -67,7 +69,7 @@
         
         <div id="templatemo_content_wrapper">
             <%= yield %>
-
+            <div id="chart7"> </div>
 			
             <div class="cleaner"></div>        
         
@@ -83,6 +85,7 @@
         
 	</div> <!-- end of wrapper -->
 </div> <!-- end of wrapper_outer -->
+
 
 
 </body>

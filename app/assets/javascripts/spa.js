@@ -21,4 +21,12 @@
 //= require handlebars-1.0.0.beta.6
 //= require YouAreDaBomb
 //= require app
+//= require jquery.noty
+//= require top
+//= require topRight
+//= require default
+//= require jquery.jqplot.min
+//= require jqplot.pieRenderer.min
+//= require jquery.jcookie.min
+//= require jquery.jcookie
 

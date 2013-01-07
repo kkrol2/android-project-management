@@ -55,10 +55,25 @@ class @WebGui
       $("#issues").append(@createElementFor(issue,"#issue_template"))
     issues.reverse()
 
+  fillSurveys: (surveys) =>
+    surveys.reverse()
+    $("#content").html(@createElementFor(surveys,"#survey_container_template"))
+    for survey in surveys
+      if survey.voted
+        template = @createElementFor(survey,"#survey_template")
+        $('#surveys').append(template)
+        @showChart("survey"+survey.id,survey)
+      else
+        $('#surveys').append(@createElementFor(survey,"#surveys_vote_template"))
+    surveys.reverse()
+    $(".submit_btn").click((e) => @voteSurvey($(e.currentTarget).attr('id'),$(e.currentTarget).closest('div').parent()))
+
 
   addComment: =>
     comment = new Comment($("#text").val(),$("#author").val() )
     @addCommentToDatabaseDummy(comment)
+    @showNotificationSuccess("Your comment has been added successfully.")
+    $("html, body").animate({ scrollTop: 0 }, "slow")
 
   addCommentToDatabaseDummy: (comment) =>
 
@@ -94,5 +109,48 @@ class @WebGui
     issue = new Issue($("#issue_name").val(),$("#issue_description").val())
     @addIssueToDatabaseDummy(issue)
     $("#issues").show()
+    @showNotificationSuccess("Issue has been submitted successfully.")
+    $("html, body").animate({ scrollTop: 0 }, "slow")
 
   addIssueToDatabaseDummy: (issue) =>
+
+  showNotificationSuccess: (message) =>
+    noty({text: message, layout: 'topRight', "timeout":3000, type: 'success'})
+
+  showNotificationFailure: (message) =>
+    noty({text: message, layout: 'topRight', "timeout":3000, type: 'failure'})
+
+  showChart: (id,survey) =>
+    jQuery.jqplot.config.enablePlugins = true
+    options = [[]]
+    for option in survey.options
+      options[0].push([option.name,option.votes_number])
+    plot7 = jQuery.jqplot(id, options, 
+    {
+      title: survey.description, 
+      seriesDefaults: {shadow: true, renderer: jQuery.jqplot.PieRenderer, rendererOptions: { showDataLabels: true } }, 
+      legend: { show:true },
+      grid: {
+        drawGridLines: true,
+        gridLineColor: '#cccccc',
+        background: '#404442',
+        borderColor: '#999999',
+        borderWidth: 2.0,
+        shadow: true,
+        shadowAngle: 45,
+        shadowOffset: 1.5,
+        shadowWidth: 3,
+        shadowDepth: 3
+        },
+    })
+  voteSurvey: (survey_id, parent_div) =>
+    checkedRadios = $(parent_div).find('input:radio:checked');
+    if checkedRadios.length == 0
+      @showNotificationFailure('Sorry, You have to select one of the options')
+      return
+    @voteSurveyDummy(survey_id,$(checkedRadios[0]).attr('id'))
+
+  voteSurveyDummy: (survey_id,option_id) =>
+  
+
+

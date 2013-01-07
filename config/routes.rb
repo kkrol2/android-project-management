@@ -25,6 +25,8 @@ match 'projects/addComment' => 'projects#addComment'
 
 match 'projects/addIssue' => 'projects#addIssue'
 
+match 'projects/updateOption' => 'projects#updateOption'
+
 namespace :admins do
   root :to => "admins#index"
   resources :projects do

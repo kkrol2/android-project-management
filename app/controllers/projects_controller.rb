@@ -32,6 +32,7 @@ class ProjectsController < ApplicationController
 		j = ActiveSupport::JSON
 		project = Project.find(params[:id])
 		surveys = project.surveys
+	    surveys.select! { |survey| survey.enabled }
 		respond_to do |format|
     		format.json { render :json => j.encode(surveys) }
   		end
@@ -110,6 +111,22 @@ class ProjectsController < ApplicationController
   			end
   		end
 
+
+	end
+
+	def updateOption
+		j = ActiveSupport::JSON
+		option = Option.find(params[:id])
+		option.votes_number = params[:votes_number]
+		if option.save
+			respond_to do |format|
+    			format.json { render :json => j.encode("Success") }
+  			end
+		else
+			respond_to do |format|
+    			format.json { render :json => j.encode("Failure") }
+  			end
+		end
 
 	end
 
